@@ -90,8 +90,19 @@ calcPol  p1 p2
 -- usando o seguinte esquema: strings de entrada com mais de 10 caracteres são truncadas,
 -- strings com até 10 caracteres são completadas com '.' até ficarem com 10 caracteres. Exemplo:
 
+--string10 :: [String] -> [String]
+--string10 lstr = if (length (head lstr) < 10) then ((head lstr) ++".")
+
 string10 :: [String] -> [String]
-string10 lstr = if(head lstr < 10) then (head lstr ++ ".") else string10(tail lstr)
+string10 [] = []
+string10 lstr = map(proc2)lstr
+
+proc2 :: String -> String
+proc2 [] = []
+proc2 aux 
+	|(length aux) < 10 = proc2(aux++".")
+	|(length aux) > 10 = take 10 (aux)
+	|otherwise = aux
 
 
 -- E4. Dada uma lista de idades, selecionar as que são maiores que 20 e, para cada uma,
