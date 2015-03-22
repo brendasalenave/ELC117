@@ -49,11 +49,19 @@ proc y = 	"<LI>" ++ y ++ "</LI>"
 -- (segundo argumento).
 
 charFound :: Char -> String -> Bool
---charFound [] = []
 charFound k listCh
 	| k == (head listCh) = True
 	| listCh == [] = False
 	| otherwise = charFound k(tail listCh)
+
+
+-- E8. Reescreva a função anterior sem recursão, usando outras funções
+-- pré-definidas já vistas em aula.
+
+charFound1 :: Char -> String -> Bool
+charFound1 c listCh
+	|filter(== c)listCh == [] = False
+	|otherwise = True
 
 
 -- E9. Use a função de alta ordem 'zipWith' para produzir uma função que obtenha as diferenças,
@@ -62,3 +70,33 @@ charFound k listCh
 
 calcDiferenca :: [Int] -> [Int] -> [Int]
 calcDiferenca l1 l2 = zipWith (-) l1 l2
+
+-- Part. 2
+
+-- E1. Dada uma lista de números, calcular 2*n+1 para cada número n contido na lista.
+calcList :: [Int] -> [Int]
+calcList lista = map(+1)(map(*2)lista)
+
+-- E2. Dadas duas listas X e Y de números inteiros, calcular 4*x+2*y+1 para cada par
+-- de números x e y pertencentes às listas. 
+
+calcPol :: [Int] -> [Int] -> [Int]
+calcPol  p1 p2
+	|(p1 == []) = []
+	|(p2 == []) = [] 
+	|otherwise = map (1+) (zipWith (+) (map(*4)p1) (map(*2)p2))
+
+-- E3. Dada uma lista de strings, produzir outra lista com strings de 10 caracteres,
+-- usando o seguinte esquema: strings de entrada com mais de 10 caracteres são truncadas,
+-- strings com até 10 caracteres são completadas com '.' até ficarem com 10 caracteres. Exemplo:
+
+string10 :: [String] -> [String]
+string10 lstr = if(head lstr < 10) then (head lstr ++ ".") else string10(tail lstr)
+
+
+-- E4. Dada uma lista de idades, selecionar as que são maiores que 20 e, para cada uma,
+-- calcular o ano de nascimento correspondente (aproximado, considerando o ano atual).
+
+calculaNasc :: [Int] -> [Int]
+calculaNasc [] = []
+calculaNasc idade = map(2015-)(filter(>20)idade)
