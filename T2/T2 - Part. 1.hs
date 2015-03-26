@@ -6,7 +6,14 @@
 geraPotencias :: Int -> [Int]
 geraPotencias  n = [2^x | x <- [n, n-1..0]]
 
---
+-- Escreva uma função addSuffix :: String -> [String] -> [String]
+-- usando list comprehension, para adicionar um sufixo às strings
+-- contidas numa lista.
 
 addSuffix :: String -> [String] -> [String]
 addSuffix str listStr = [x ++ str | x <- listStr]
+
+--
+
+anosDeNascimento :: [Int] -> [Int]
+anosDeNascimento idades = [2015 - x | x <- idades, x > 20]
