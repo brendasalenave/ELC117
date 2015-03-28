@@ -23,13 +23,12 @@ fillHtml htmltemplate content = replace "<!--@content-->" content htmltemplate
 genContent :: [(String,String)] -> String
 genContent items = conc(map (imageDiv)items)
 
+genContentLS :: [(String,String)] -> String
+genContentLS items = conc([imageDiv x | x <- items ])
+
 conc :: [String] -> String
 conc [] = []
 conc s =  (head s) ++ conc(tail s)
-
-{--Map (diviimag) nomedafunc
-Aquele diviimag eu não tenho certeza do nome, mas é a função que tá acima daquela parte que ela manda editar
-O nomefunc é a função onde tá a linha que diz pra editar--}
 
 main :: IO ()
 main = do
