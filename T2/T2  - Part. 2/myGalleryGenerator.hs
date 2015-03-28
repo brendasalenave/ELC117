@@ -26,9 +26,6 @@ genContent items = concat (map (imageDiv)items)
 genContentLS :: [(String,String)] -> String
 genContentLS items = concat $ [imageDiv x | x <- items ]
 
-conc :: [String] -> String
-conc [] = []
-conc s =  (head s) ++ conc(tail s)
 
 main :: IO ()
 main = do
