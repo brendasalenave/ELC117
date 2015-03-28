@@ -21,7 +21,15 @@ fillHtml htmltemplate content = replace "<!--@content-->" content htmltemplate
 -- Complete esta funcao de forma a aplicar imageDiv a cada um dos itens da galeria
 -- O resultado final deve ser uma unica string (e nao uma lista de strings)
 genContent :: [(String,String)] -> String
-genContent items = "" -- substitua a string vazia pelo codigo gerador
+genContent items = conc(map (imageDiv)items)
+
+conc :: [String] -> String
+conc [] = []
+conc s =  (head s) ++ conc(tail s)
+
+{--Map (diviimag) nomedafunc
+Aquele diviimag eu não tenho certeza do nome, mas é a função que tá acima daquela parte que ela manda editar
+O nomefunc é a função onde tá a linha que diz pra editar--}
 
 main :: IO ()
 main = do
