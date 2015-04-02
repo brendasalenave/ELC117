@@ -1,2 +1,2 @@
-# ELC117.hs
+# ELC117
 Paradigmas de programação - trabalhos
