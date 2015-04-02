@@ -37,11 +37,21 @@ userName :: String -> String
 userName uname = map toLower ((head uname) : (reverse (takeWhile (/= ' ') (reverse uname))))
 
 
-{- Escreva uma função não-recursiva encodeName :: String -> String que
+{- 5. Escreva uma função não-recursiva encodeName :: String -> String que
  substitua vogais em uma string, conforme o esquema a seguir: a = 4,
  e = 3, i = 1, o = 0, u = 00. -}
-
+-- arrumar
 encodeName :: String -> String
-encodeName eName =  [(if x == 'a' || x =='A' then '4' else if x == 'e' || x =='E' then '3' else if x == 'i' || x =='I' then '1' else x) | x <- eName]
+encodeName eName = 
+	[(if x == 'a' || x =='A' then '4' else
+	if x == 'e' || x =='E' then '3' else
+	if x == 'i' || x =='I' then '1' else
+	if x == 'o' || x =='O' then '0' else
+	if x == 'u' || x =='U' then '?' else x) | x <- eName]
 
+{- 6. Escreva uma função isElem :: Int -> [Int] -> Bool que verifique
+ se um dado elemento pertence a uma lista, conforme os exemplos-}
+ 
+ --isElem :: Int -> [Int] -> Bool
+ --isElem e list = (if (e == (head list)) then TRUE else isElem e (tail list))
 
