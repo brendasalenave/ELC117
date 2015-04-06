@@ -59,18 +59,19 @@ isElem x lista
 	|x == (head lista) = True
 	|otherwise = isElem x (tail lista)
 
+
 {-7.Escreva uma função recursiva que retorne o número de vogais em uma string -}
 
 countVowel :: String -> Int
 countVowel [] =0
 countVowel str = (count(head str)) + (countVowel(tail str))
 	where count str
-		| str == 'a' = 1
-		| str == 'e' = 1
-		| str == 'i' = 1
-		| str == 'o' = 1
-		| str == 'u' = 1
-
+		|str == 'a' = 1
+		|str == 'e' = 1
+		|str == 'i' = 1
+		|str == 'o' = 1
+		|str == 'u' = 1
+		|otherwise = 0 
 
 
 {-8.Escreva uma função não-recursiva que retorne o número de consoantes
@@ -82,6 +83,7 @@ countCons str = length ([x | x <- str, x /= 'a', x /= 'e', x /= 'i', x /= 'o', x
 {- 9.Escreva uma função não-recursiva isInt :: String -> Bool que verifique
  se uma dada string só contém dígitos (0 a 9).							-}
 
-
-
-
+isInt :: String -> Bool
+isInt str 
+	|((length str) == (length([x | x<-str, x == '0', x == '1', x == '2', x == '3', x == '4', x == '5', x == '6', x == 7, x == '8', x == '9'))) = True
+	|otherwise = False
