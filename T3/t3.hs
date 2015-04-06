@@ -61,19 +61,25 @@ isElem x lista
 
 {- 7.Escreva uma função recursiva que retorne o número de vogais em uma string
 
-pegaLetras :: String -> String
-pegaLetras [] = []
-pegaLetras (x:xs)
+countVowel :: String -> Int
+countVowel [] =0
+countVowel (x:xs)
 	| x == 'a' = x : pegaLetras xs
 	| x == 'e' = x : pegaLetras xs
 	| x == 'i' = x : pegaLetras xs
 	| x == 'o' = x : pegaLetras xs
 	| x == 'u' = x : pegaLetras xs
-	| otherwise = pegaLetras xs
+	| otherwise = pegaLetras xs-}
 
-8.Escreva uma função não-recursiva que retorne o número de consoantes
+{-8.Escreva uma função não-recursiva que retorne o número de consoantes
  em uma string.                                                        -}
 
-removeChar :: String -> Int
-removeChar str = length ([x | x <- str, x /= 'a', x /= 'e', x /= 'i', x /= 'o', x /= 'u'])
+countCons :: String -> Int
+countCons str = length ([x | x <- str, x /= 'a', x /= 'e', x /= 'i', x /= 'o', x /= 'u'])
+
+{- 9.Escreva uma função não-recursiva isInt :: String -> Bool que verifique
+ se uma dada string só contém dígitos (0 a 9).							-}
+
+
+
 
