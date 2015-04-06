@@ -50,7 +50,7 @@ encodeName eName =  [(if x == 'a' || x =='A' then '4' else
 					if x == 'u' || x == 'U' then '?' else x) | x <- eName]
 
 
-{-Escreva uma função isElem :: Int -> [Int] -> Bool que verifique se
+{- 6.Escreva uma função isElem :: Int -> [Int] -> Bool que verifique se
  um dado elemento pertence a uma lista, conforme os exemplos: -}
 
 isElem :: Int -> [Int] -> Bool
@@ -58,3 +58,21 @@ isElem x [] = False
 isElem x lista
 	|x == (head lista) = True
 	|otherwise = isElem x (tail lista)
+
+{- 7.Escreva uma função recursiva que retorne o número de vogais em uma string
+
+pegaLetras :: String -> String
+pegaLetras [] = []
+pegaLetras (x:xs)
+	| x == 'a' = x : pegaLetras xs
+	| x == 'e' = x : pegaLetras xs
+	| x == 'i' = x : pegaLetras xs
+	| x == 'o' = x : pegaLetras xs
+	| x == 'u' = x : pegaLetras xs
+	| otherwise = pegaLetras xs
+
+8.Escreva uma função não-recursiva que retorne o número de consoantes
+ em uma string.                                                        -}
+
+removeChar :: String -> Int
+removeChar str = length ([x | x <- str, x /= 'a', x /= 'e', x /= 'i', x /= 'o', x /= 'u'])
