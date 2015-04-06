@@ -76,3 +76,4 @@ pegaLetras (x:xs)
 
 removeChar :: String -> Int
 removeChar str = length ([x | x <- str, x /= 'a', x /= 'e', x /= 'i', x /= 'o', x /= 'u'])
+
