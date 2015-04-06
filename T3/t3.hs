@@ -59,17 +59,19 @@ isElem x lista
 	|x == (head lista) = True
 	|otherwise = isElem x (tail lista)
 
-{- 7.Escreva uma função recursiva que retorne o número de vogais em uma string
+{-7.Escreva uma função recursiva que retorne o número de vogais em uma string -}
 
 countVowel :: String -> Int
 countVowel [] =0
-countVowel (x:xs)
-	| x == 'a' = x : pegaLetras xs
-	| x == 'e' = x : pegaLetras xs
-	| x == 'i' = x : pegaLetras xs
-	| x == 'o' = x : pegaLetras xs
-	| x == 'u' = x : pegaLetras xs
-	| otherwise = pegaLetras xs-}
+countVowel str = (count(head str)) + (countVowel(tail str))
+	where count str
+		| str == 'a' = 1
+		| str == 'e' = 1
+		| str == 'i' = 1
+		| str == 'o' = 1
+		| str == 'u' = 1
+
+
 
 {-8.Escreva uma função não-recursiva que retorne o número de consoantes
  em uma string.                                                        -}
