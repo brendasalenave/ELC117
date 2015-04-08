@@ -97,7 +97,12 @@ isInt str
 
 strToInt :: String -> [Int]
 strToInt [] = []
-strToInt str = [((fromEnum x)-48)|x<-s]
+strToInt str = sum(newList * ([k | k<-[lista com passo (n/10)]]]))
+--strToInt str = [(fromEnum d)*((fromEnum x)-48)|x<-s, d<-[(n/10) .. 1]]
 	where
 		s = (filter (\str->(str=='0')||(str=='1')||(str=='2')||(str=='3')||(str=='4')||(str=='5')||(str=='6')||(str=='7')||(str=='8')||(str=='9')) str)
-		n = 10 ^ ((length(s))+1)
+		n = 10 ^ ((length(s)))
+		newList = [((fromEnum x)-48)|x<-s]
+		mul = map(*n) newList
+
+
