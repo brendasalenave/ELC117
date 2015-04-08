@@ -92,4 +92,12 @@ isInt str
 {- 10.Escreva uma função não-recursiva strToInt :: String -> Int que converta
  uma string em um número inteiro, fazendo operações aritméticas com seus dígitos
  (p.ex.: "356" = 3*100 + 5*10 + 6*1 = 356). Considere que a string seja um número
- válido, isto é, só contenha dígitos de 0 a 9. Dica: se não souber por onde começar, estude o exemplo de validação de CPF visto em aula.-}
+ válido, isto é, só contenha dígitos de 0 a 9. Dica: se não souber por onde
+ começar, estude o exemplo de validação de CPF visto em aula.-}
+
+strToInt :: String -> [Int]
+strToInt [] = []
+strToInt str = [((fromEnum x)-48)|x<-s]
+	where
+		s = (filter (\str->(str=='0')||(str=='1')||(str=='2')||(str=='3')||(str=='4')||(str=='5')||(str=='6')||(str=='7')||(str=='8')||(str=='9')) str)
+		n = 10 ^ ((length(s))+1)
