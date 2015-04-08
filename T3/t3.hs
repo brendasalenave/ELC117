@@ -95,14 +95,17 @@ isInt str
  válido, isto é, só contenha dígitos de 0 a 9. Dica: se não souber por onde
  começar, estude o exemplo de validação de CPF visto em aula.-}
 
-strToInt :: String -> [Int]
-strToInt [] = []
-strToInt str = sum(newList * ([k | k<-[lista com passo (n/10)]]]))
+strToInt :: String -> Int
+strToInt [] = 0
+strToInt str = sum(zipWith(*) newList mul)
 --strToInt str = [(fromEnum d)*((fromEnum x)-48)|x<-s, d<-[(n/10) .. 1]]
 	where
 		s = (filter (\str->(str=='0')||(str=='1')||(str=='2')||(str=='3')||(str=='4')||(str=='5')||(str=='6')||(str=='7')||(str=='8')||(str=='9')) str)
-		n = 10 ^ ((length(s)))
+		n = (length(s))
 		newList = [((fromEnum x)-48)|x<-s]
-		mul = map(*n) newList
+		mul = criaLista(n)
 
-
+criaLista:: Int -> [Int]
+criaLista elem
+	|(elem == -1) = []
+	|otherwise = (10^elem) : criaLista (elem-1)
