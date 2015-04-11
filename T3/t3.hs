@@ -37,17 +37,19 @@ userName :: String -> String
 userName uname = map toLower ((head uname) : (reverse (takeWhile (/= ' ') (reverse uname))))
 
 
---ARRUMAR
 {- 5.Escreva uma função não-recursiva encodeName :: String -> String que
  substitua vogais em uma string, conforme o esquema a seguir: a = 4,
  e = 3, i = 1, o = 0, u = 00. -}
 
 encodeName :: String -> String
-encodeName eName =  [(if x == 'a' || x =='A' then '4' else
-					if x == 'e' || x =='E' then '3' else
-					if x == 'i' || x =='I' then '1' else
-					if x == 'o' || x == 'O' then '0' else
-					if x == 'u' || x == 'U' then '?' else x) | x <- eName]
+encodeName eName = concat $ map busca eName
+	where busca x
+		| (x == 'a' || x =='A') = "4"
+		| (x == 'e' || x =='E') = "3" 
+		| (x == 'i' || x =='I') = "1" 
+		| (x == 'o' || x =='O') = "0" 
+		| (x == 'u' || x =='U') = "00"
+		| otherwise = [x]
 
 
 {- 6.Escreva uma função isElem :: Int -> [Int] -> Bool que verifique se
