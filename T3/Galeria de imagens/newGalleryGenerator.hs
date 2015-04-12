@@ -11,6 +11,7 @@
  'description x' vai retornar o atributo 'description' de x, e assim por diante
  Mais sobre isso em: http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 -}
+
 data GalleryItem =
    GalleryItem {title :: String,
                 description :: String,

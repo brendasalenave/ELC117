@@ -58,5 +58,3 @@ splitOn delim xs = loop xs
 -- Substitui old por new em list
 replace :: Eq a => [a] -> [a] -> [a] -> [a]
 replace old new list = intercalate new . splitOn old $ list
-
-

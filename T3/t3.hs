@@ -42,7 +42,7 @@ userName uname = map toLower ((head uname) : (reverse (takeWhile (/= ' ') (rever
  e = 3, i = 1, o = 0, u = 00. -}
 
 encodeName :: String -> String
-encodeName eName = concat $ map busca eName
+encodeName eName = concatMap busca eName
 	where busca x
 		| (x == 'a' || x =='A') = "4"
 		| (x == 'e' || x =='E') = "3" 
