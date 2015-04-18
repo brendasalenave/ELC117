@@ -8,63 +8,76 @@ pobre(bia).
 pobre(pedro).
 pobre(maria).
 
+rico(caren).
 rico(alice).
 rico(henrique).
 rico(adriano).
 
-relacionamento(anita, pedro).
-relacionamento(anita, bernardo).
-relacionamento(caren, bernardo).
-relacionamento(caren, adriano).
-relacionamento(maria, adriano).
-relacionamento(maria, henrique).
-relacionamento(alice, henrique).
-relacionamento(alice, pedro).
+relacionamento(anita,pedro).
+relacionamento(anita,bernardo).
+relacionamento(caren,bernardo).
+relacionamento(caren,adriano).
+relacionamento(maria,adriano).
+relacionamento(maria,henrique).
+relacionamento(alice,henrique).
+relacionamento(alice,pedro).
 
-segunda_feira(pedro, santa_maria).
-terca_feira(pedro, santa_maria).
-quarta_feira(pedro, porto_alegre).
-quinta_feira(pedro, santa_maria).
-sexta_feira(pedro, apartamento).
+segundafeira(pedro,santa_maria).
+segundafeira(caren,porto_alegre).
+segundafeira(henrique,apartamento).
+segundafeira(bia,apartamento).
+segundafeira(adriano,apartamento).
+segundafeira(alice,apartamento).
+segundafeira(bernardo,santa_maria).
+segundafeira(maria,apartamento).
 
-segunda_feira(caren, porto_alegre).
-terca_feira(caren, porto_alegre).
-quarta_feira(caren, porto_alegre).
-quinta_feira(caren, santa_maria).
-sexta_feira(caren, apartamento).
+tercafeira(pedro,santa_maria).
+tercafeira(caren,porto_alegre).
+tercafeira(henrique,porto_alegre).
+tercafeira(bia,porto_alegre).
+tercafeira(adriano,apartamento).
+tercafeira(alice,porto_alegre).
+tercafeira(bernardo,santa_maria).
+tercafeira(maria,santa_maria).
 
-segunda_feira(henrique, apartamento).
-terca_feira(henrique, porto_alegre).
-quarta_feira(henrique, apartamento).
-quinta_feira(henrique, apartamento).
-sexta_feira(henrique, apartamento).
+quartafeira(pedro,porto_alegre).
+quartafeira(caren,porto_alegre).
+quartafeira(henrique,apartamento).
+quartafeira(bia,porto_alegre).
+quartafeira(adriano,santa_maria).
+quartafeira(alice,porto_alegre).
+quartafeira(bernardo,porto_alegre).
+quartafeira(maria,santa_maria).
 
-segunda_feira(bia, apartamento).
-terca_feira(bia, porto_alegre).
-quarta_feira(bia, porto_alegre).
-quinta_feira(bia, santa_maria).
-sexta_feira(bia, apartamento).
+quintafeira(pedro,santa_maria).
+quintafeira(caren,santa_maria).
+quintafeira(henrique,apartamento).
+quintafeira(bia,santa_maria).
+quintafeira(adriano,apartamento).
+quintafeira(alice,apartamento).
+quintafeira(bernardo,santa_maria).
+quintafeira(maria,santa_maria).
 
-segunda_feira(adriano, apartamento).
-terca_feira(adriano, apartamento).
-quarta_feira(adriano, santa_maria).
-quinta_feira(adriano, apartamento).
-sexta_feira(adriano, apartamento).
+sextafeira(pedro,apartamento).
+sextafeira(caren,apartamento).
+sextafeira(henrique,apartamento).
+sextafeira(bia,apartamento).
+sextafeira(adriano,apartamento).
+sextafeira(alice,apartamento).
+sextafeira(bernardo,apartamento).
+sextafeira(maria,apartamento).
 
-segunda_feira(alice, apartamento).
-terca_feira(alice, porto_alegre).
-quarta_feira(alice, porto_alegre).
-quinta_feira(alice, apartamento).
-sexta_feira(alice, apartamento).
+namorou(A,B):- relacionamento(A,B).
+namorou(A,B):- relacionamento(B,A).
+ciumes(X,Y):- namorou(Z,X), namorou(Y,Z).
 
-segunda_feira(bernardo, santa_maria).
-terca_feira(bernardo, santa_maria).
-quarta_feira(bernardo, porto_alegre).
-quinta_feira(bernardo, santa_maria).
-sexta_feira(bernardo, apartamento).
+bastao(X):- quintafeira(X, porto_alegre); quartafeira(X, santa_maria).
+martelo(X):- quartafeira(X, apartamento); quintafeira(X, apartamento).
+chave(X):- quartafeira(X, santa_maria); tercafeira(X, porto_alegre).
 
-segunda_feira(maria, apartamento).
-terca_feira(maria, santa_maria).
-quarta_feira(maria, santa_maria).
-quinta_feira(maria, santa_maria).
-sexta_feira(maria, apartamento).
+acesso(X):- (bastao(X); martelo(X)), chave(X), (quintafeira(X,apartamento); sextafeira(X, apartamento)).
+
+motivo(X):- vitima(V), (insano(X); ciumes(X,V); pobre(X)).
+
+assassino(X) :- motivo(X), acesso(X).
+
