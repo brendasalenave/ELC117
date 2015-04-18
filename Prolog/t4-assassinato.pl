@@ -73,7 +73,7 @@ ciumes(X,Y):- namorou(Z,X), namorou(Y,Z).
 
 bastao(X):- quintafeira(X, porto_alegre); quartafeira(X, santa_maria).
 martelo(X):- quartafeira(X, apartamento); quintafeira(X, apartamento).
-chave(X):- quartafeira(X, santa_maria); tercafeira(X, porto_alegre).
+chave(X):- segundafeira(X, santa_maria); tercafeira(X, porto_alegre).
 
 acesso(X):- (bastao(X); martelo(X)), chave(X), (quintafeira(X,apartamento); sextafeira(X, apartamento)).
 
