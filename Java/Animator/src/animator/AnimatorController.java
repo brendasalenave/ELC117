@@ -47,7 +47,7 @@ public class AnimatorController {
     private static final int alturaPadrao = 500;
     private static final Speed velocidadePadrao = Speed.High;
     private static final int defaultNumberOfObjects = 1;
-    private static final String imagemPadrao = "spaceship-small.png";
+    private static final String imagemPadrao = "small-charmander.png";
     
     public AnimatorController(AnimatorGUI view) {
         this.executa = false;

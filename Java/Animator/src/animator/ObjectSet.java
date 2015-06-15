@@ -21,11 +21,11 @@ class ObjectSet {
         for(int i = 0; i < n; i++){
             Point p = new Point();
             Random a = new Random();
-            int x = a.nextInt(dim.width);
-            int y = a.nextInt(dim.height);
+            int x = a.nextInt((dim.width - 150));
+            int y = a.nextInt((dim.height - 150));
 
             p.setLocation(x, y);
-            Image img = new Image(p, image, path, dim);
+            Image img = new Image(p, image);
             array.add(img);
         }
     }
