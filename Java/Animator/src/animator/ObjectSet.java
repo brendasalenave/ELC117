@@ -4,24 +4,32 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Random;
 
 // Conjunto de objetos da animacao.
 class ObjectSet {
     
-    private Image[] images;
+    //private Image[] images;
+    ArrayList array = new ArrayList<Image>();
     
     // Adiciona objetos da classe Image ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
+ 
+        
     void addImages(int n, Dimension dim, BufferedImage image, String path) {
-        System.out.printf("Test: adding %d images\n", n);
-        System.out.printf("Test: motion path %s\n", path);
-        images = new Image[n];
-        for (int i = 0; i < images.length; i++) {
-            Point p = new Point(10,10);
-            images[i] = new Image(p, image);
+        for(int i = 0; i < n; i++){
+            Point p = new Point();
+            Random a = new Random();
+            int x = a.nextInt(dim.width);
+            int y = a.nextInt(dim.height);
+
+            p.setLocation(x, y);
+            Image img = new Image(p, image, path, dim);
+            array.add(img);
         }
     }
+    
     
     // Adiciona objetos da classe Star ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
@@ -46,9 +54,11 @@ class ObjectSet {
     }
     
     // Desenha cada um dos objetos da animacao.
-    // O codigo abaixo eh somente um teste e precisa ser substituido.
     void drawAll(Graphics g) {
-        System.out.println("drawAll");
+        for(int i = 0; i < array.size(); i++){
+            Image img = (Image) array.get(i);
+            img.draw(g);
+        }
     }
 
     // Move cada um dos objetos da animacao.
@@ -56,4 +66,5 @@ class ObjectSet {
     void moveAll() {
         System.out.println("moveAll");
     }
-    }
+
+}

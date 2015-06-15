@@ -1,5 +1,6 @@
 package animator;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
@@ -13,6 +14,10 @@ class Image {
     public Image(Point pos, BufferedImage img) {
         this.pos = pos;
         this.img = img;
+    }
+
+    Image(Point p, BufferedImage image, String path, Dimension dim) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Point getPos() {
