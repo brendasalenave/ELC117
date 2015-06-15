@@ -43,7 +43,7 @@ public class AnimatorController {
     
     private static final int larguraPadrao = 600;
     private static final int alturaPadrao = 500;
-    private static final Speed defaultSpeed = Speed.High;
+    private static final Speed velocidadePadrao = Speed.High;
     private static final int defaultNumberOfObjects = 1;
     private static final String imagemPadrao = "spaceship-small.png";
     
