@@ -13,7 +13,7 @@ implements Runnable {
     private int millis;
 
     public AnimationPanel(ObjectSet objs, Dimension tam, int millis) {
-        this.setBackground(Color.gray);
+        this.setBackground(Color.black);
         this.objs = objs;
         this.tam = tam;
         this.millis = millis;

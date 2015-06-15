@@ -5,10 +5,26 @@
  */
 package animator;
 
+import java.awt.Point;
+
 /**
  *
  * @author Brenda
  */
 public class Star {
+    private final double interno;
+    private final double externo;
+    private final int ponta;
+    private final Point centro;
+    private final double scale;
+    
+     public Star(int ponta, Point centro, double externo, double rInner)  {
+        scale = 1.0D;
+        this.centro = centro;
+        this.ponta = ponta;
+        this.externo = externo;
+        this.interno = rInner;
+    }
+
     
 }
