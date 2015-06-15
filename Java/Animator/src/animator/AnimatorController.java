@@ -37,32 +37,32 @@ public class AnimatorController {
     private AnimatorGUI view;
     private ObjectSet objs;
     private Thread panelThread;
-    private boolean isRunning;
-    private Dimension dim;
+    private boolean executa;
+    private Dimension tam;
     private int millis;
     
-    private static final int defaultWidth = 600;
-    private static final int defaultHeight = 600;
+    private static final int larguraPadrao = 600;
+    private static final int alturaPadrao = 500;
     private static final Speed defaultSpeed = Speed.High;
     private static final int defaultNumberOfObjects = 1;
-    private static final String defaultFilename = "spaceship-small.png";
+    private static final String imagemPadrao = "spaceship-small.png";
     
     public AnimatorController(AnimatorGUI view) {
-        this.isRunning = false;
+        this.executa = false;
         this.view = view;
     }
 
     public static int getDefaultWidth() {
-        return defaultWidth;
+        return larguraPadrao;
     }
     public static int getDefaultHeight() {
-        return defaultHeight;
+        return alturaPadrao;
     }
     public static int getDefaultNumberOfObjects() {
         return defaultNumberOfObjects;
     }
     public static String getDefaultFilename() {
-        return defaultFilename;
+        return imagemPadrao;
     }
 
     // Metodo chamado pelo botao Stop
@@ -71,7 +71,7 @@ public class AnimatorController {
                 animFrame.dispose();
         if (panelThread != null)
             panelThread.interrupt();
-        isRunning = false;
+        executa = false;
         view.setStopped();
     }
     
@@ -100,7 +100,7 @@ public class AnimatorController {
 
     // Configuracao basica da animacao (tamanho e velocidade)
     private void readAnimConfig() {
-        dim = new Dimension(Integer.parseInt(view.getTextWidth()),
+        tam = new Dimension(Integer.parseInt(view.getTextWidth()),
                             Integer.parseInt(view.getTextHeight()));
         Speed s = (Speed) view.getComboSpeed().getSelectedItem();
         millis = s.getMillis();        
@@ -117,7 +117,7 @@ public class AnimatorController {
         if (image == null) 
             throw new Exception("Error reading image file.");
         String pathImages = (String) view.getComboPathImages().getSelectedItem();
-        objs.addImages(nImages, dim, image, pathImages);
+        objs.addImages(nImages, tam, image, pathImages);
         // Fim da criacao dos objetos Image
 
         // Inicio da criacao dos objetos com formas geometricas
@@ -125,29 +125,29 @@ public class AnimatorController {
         ShapeType shapeType = (ShapeType) view.getComboShape().getSelectedItem();
         String pathShapes = (String) view.getComboPathShapes().getSelectedItem();
         switch (shapeType) {
-            case Estrela: objs.addStars(nShapes, dim, pathShapes); break;
-            case Retangulo: objs.addRectangles(nShapes, dim, pathShapes); break;
-            case Circulo: objs.addCircles(nShapes, dim, pathShapes); break;            
+            case Estrela: objs.addStars(nShapes, tam, pathShapes); break;
+            case Retangulo: objs.addRectangles(nShapes, tam, pathShapes); break;
+            case Circulo: objs.addCircles(nShapes, tam, pathShapes); break;            
         }
         // Fim da configuracao dos objetos com formas geometricas
     }
     
     private void createAndShowAnimFrame() {
 
-        animFrame = new JFrame("Animation");
-        isRunning = true;
+        animFrame = new JFrame("Animação");
+        executa = true;
         animFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         animFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 JFrame frame = (JFrame) e.getSource();
                 frame.dispose();
                 panelThread.interrupt();
-                isRunning = false;
+                executa = false;
                 view.setStopped();
             }
         });
                 
-        AnimationPanel panel = new AnimationPanel(objs, dim, millis);
+        AnimationPanel panel = new AnimationPanel(objs, tam, millis);
         animFrame.add(panel);
         animFrame.pack();
         animFrame.setLocationRelativeTo(null);
