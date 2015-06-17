@@ -5,10 +5,14 @@
  */
 package animator;
 
+import java.awt.Dimension;
+import java.awt.Point;
+
 /**
  *
  * @author Brenda
  */
 public class MovimentoLinear {
     
+
 }

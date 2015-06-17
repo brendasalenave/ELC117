@@ -7,6 +7,8 @@ package animator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.GeneralPath;
 
 /**
  *
@@ -21,7 +23,7 @@ public class Estrela {
     private final String caminho;
 
 
-      public Estrela(int x, int y, String caminho){
+    public Estrela(int x, int y, String caminho){
         this.x = x;
         this.y = y;
         this.caminho = caminho;
@@ -30,6 +32,9 @@ public class Estrela {
         this.altura = 25;
     }
 
+    public void draw(Graphics g){
+
+    }
     
     
 }

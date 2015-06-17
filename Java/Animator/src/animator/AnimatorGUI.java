@@ -2,10 +2,7 @@ package animator;
 
 import javax.swing.*;
 
-/**
- *
- * @author andrea
- */
+
 public class AnimatorGUI extends javax.swing.JFrame {
 
     private AnimatorController controller;
@@ -354,7 +351,7 @@ public class AnimatorGUI extends javax.swing.JFrame {
     }
     
     public void showMessage(String msg) {
-        JOptionPane.showMessageDialog(this, msg, "Error",
+        JOptionPane.showMessageDialog(this, msg, "Erro",
                 JOptionPane.ERROR_MESSAGE);
     }
 

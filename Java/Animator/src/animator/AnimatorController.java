@@ -118,7 +118,7 @@ public class AnimatorController {
         String imageName = view.getTextImage().getText();
         BufferedImage image = readImage(imageName);
         if (image == null) 
-            throw new Exception("Error reading image file.");
+            throw new Exception("Erro ao ler arquivo.");
         String pathImages = (String) view.getComboPathImages().getSelectedItem();
         objs.addImages(nImages, tam, image, pathImages);
         // Fim da criacao dos objetos Image
