@@ -13,7 +13,9 @@ class ObjectSet {
     
     //private Image[] images;
     ArrayList array = new ArrayList<Image>();
-    private ArrayList<Circulo> circ;  
+    private ArrayList<Circulo> circ = new ArrayList<Circulo>();
+    private ArrayList<Retangulo> retang = new ArrayList<Retangulo>();  
+
     
     // Adiciona objetos da classe Image ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
@@ -43,9 +45,13 @@ class ObjectSet {
     
     // Adiciona objetos da classe Star ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
-    void addRectangles(int n, Dimension dim, String path) {
-        System.out.printf("Test: adding %d rectangles\n", n);
-        System.out.printf("Test: motion path %s\n", path);
+    void addRectangles(int n, Dimension dim, String caminho) {
+         for (int i = 0; i < n; i++){
+            Random a = new Random();
+            int x = a.nextInt((dim.width - 150));
+            int y = a.nextInt((dim.height - 150));
+            retang.add(new Retangulo(x,y,60,60,caminho));
+         }
     }
     
     // Adiciona objetos da classe Star ao ObjectSet.
@@ -53,8 +59,8 @@ class ObjectSet {
     void addCircles(int n, Dimension dim, String caminho) {
          for (int i = 0; i < n; i++){
             Random a = new Random();
-            int x = a.nextInt((dim.width - 50));
-            int y = a.nextInt((dim.height - 50));
+            int x = a.nextInt((dim.width - 150));
+            int y = a.nextInt((dim.height - 150));
             circ.add(new Circulo(x,y,80,caminho));
          }
     }
@@ -69,6 +75,10 @@ class ObjectSet {
         
         for (int i = 0; i < circ.size(); i++){
             circ.get(i).draw(g);
+        }
+        
+        for (int i = 0; i < retang.size(); i++){
+            retang.get(i).draw(g);
         }
     }
 

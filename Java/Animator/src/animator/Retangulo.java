@@ -13,28 +13,28 @@ package animator;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.Random;
 
-public class Circulo {
+public class Retangulo {
     Color cor;
-    private int x, y , r;
-    private String caminho;
-    private int largura;
-    private int altura;
-    private final int raio;
+    private final int base;
+    private final int altura;
+    private final int x;
+    private final int y;
+    private final String caminho;
     
-    public Circulo(int x, int y, int raio, String caminho) {
+    public Retangulo(int x, int y, int b, int h, String caminho) {
         this.x = x;
         this.y = y;
-        this.raio = r;
+        this.base = b;
+        this.altura = h;
         this.caminho = caminho;
-        cor = (Color.cyan);
+        cor = (Color.ORANGE);
     }
-
-    void draw(Graphics g) {
+    
+    public void draw(Graphics g){
         g.setColor(cor);
-        g.fillOval(x, y, raio, raio);
+        g.fillRect(x, y, base, altura);
     }
-    
-    
 }
