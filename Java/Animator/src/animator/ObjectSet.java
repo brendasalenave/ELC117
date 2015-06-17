@@ -13,8 +13,12 @@ class ObjectSet {
     
     //private Image[] images;
     ArrayList array = new ArrayList<Image>();
-    private ArrayList<Circulo> circ = new ArrayList<Circulo>();
-    private ArrayList<Retangulo> retang = new ArrayList<Retangulo>();  
+    private ArrayList<Circulo> circulo = new ArrayList<Circulo>();
+    private ArrayList<Retangulo> retang = new ArrayList<Retangulo>();
+    private ArrayList<Star> estrela = new ArrayList<Star>();
+    private ArrayList<Elipse> elipse = new ArrayList<Elipse>();  
+
+
 
     
     // Adiciona objetos da classe Image ao ObjectSet.
@@ -38,9 +42,11 @@ class ObjectSet {
     // Adiciona objetos da classe Star ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addStars(int n, Dimension dim, String path) {
-        System.out.printf("Test: adding %d stars\n", n);
-        System.out.printf("Test: motion path %s\n", path);
-
+        /*for (int i = 0; i < n; i++) {
+            int x = rand.nextInt(dim.width) - 50;
+            int y = rand.nextInt(dim.height) - 50;
+            estrela.add(new Estrela(x,y,path));
+        }*/
     }
     
     // Adiciona objetos da classe Star ao ObjectSet.
@@ -61,7 +67,16 @@ class ObjectSet {
             Random a = new Random();
             int x = a.nextInt((dim.width - 150));
             int y = a.nextInt((dim.height - 150));
-            circ.add(new Circulo(x,y,80,caminho));
+            circulo.add(new Circulo(x,y,80,caminho));
+         }
+    }
+    
+    void addElipses(int n, Dimension dim, String caminho) {
+         for (int i = 0; i < n; i++){
+            Random a = new Random();
+            int x = a.nextInt((dim.width - 150));
+            int y = a.nextInt((dim.height - 150));
+            elipse.add(new Elipse(x,y,caminho));
          }
     }
 
@@ -73,12 +88,20 @@ class ObjectSet {
             img.draw(g);
         }
         
-        for (int i = 0; i < circ.size(); i++){
-            circ.get(i).draw(g);
+        for (int i = 0; i < circulo.size(); i++){
+            circulo.get(i).draw(g);
         }
         
         for (int i = 0; i < retang.size(); i++){
             retang.get(i).draw(g);
+        }
+        /*
+        for (int i = 0; i < estrela.size(); i++){
+            estrela.get(i).draw(g);
+        }
+        */
+        for (int i = 0; i < elipse.size(); i++){
+            elipse.get(i).draw(g);
         }
     }
 

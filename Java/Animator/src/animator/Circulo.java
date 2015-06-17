@@ -11,16 +11,12 @@ package animator;
  */
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.Random;
 
 public class Circulo {
     Color cor;
     private int x, y , r;
     private String caminho;
-    private int largura;
-    private int altura;
     private final int raio;
     
     public Circulo(int x, int y, int raio, String caminho) {
@@ -28,7 +24,7 @@ public class Circulo {
         this.y = y;
         this.raio = r;
         this.caminho = caminho;
-        cor = (Color.cyan);
+        cor = (Color.green);
     }
 
     void draw(Graphics g) {

@@ -12,24 +12,27 @@ import java.awt.Graphics;
  *
  * @author Brenda
  */
-public class Star {
+public class Elipse {
     Color cor;
     private final int x;
     private final int y;
     private final int largura;
     private final int altura;
     private final String caminho;
-
-
-      public Star(int x, int y, String caminho){
+    
+    public Elipse(int x, int y, String caminho){
         this.x = x;
         this.y = y;
         this.caminho = caminho;
-        cor = (Color.cyan);
-        this.largura = 60;
-        this.altura = 25;
+        cor = (Color.red);
+        
+        this.largura = 90;
+        this.altura = 60;
     }
-
     
+    public void draw(Graphics g){
+        g.setColor(cor);
+        g.fillOval(x, y, largura, altura);
+    }
     
 }
