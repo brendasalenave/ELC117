@@ -15,7 +15,7 @@ class ObjectSet {
     ArrayList array = new ArrayList<Image>();
     private ArrayList<Circulo> circulo = new ArrayList<Circulo>();
     private ArrayList<Retangulo> retang = new ArrayList<Retangulo>();
-    private ArrayList<Star> estrela = new ArrayList<Star>();
+    private ArrayList<Estrela> estrela = new ArrayList<Estrela>();
     private ArrayList<Elipse> elipse = new ArrayList<Elipse>();  
 
 
@@ -39,7 +39,7 @@ class ObjectSet {
     }
     
     
-    // Adiciona objetos da classe Star ao ObjectSet.
+    // Adiciona objetos da classe Estrela ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addStars(int n, Dimension dim, String path) {
         /*for (int i = 0; i < n; i++) {
@@ -49,7 +49,7 @@ class ObjectSet {
         }*/
     }
     
-    // Adiciona objetos da classe Star ao ObjectSet.
+    // Adiciona objetos da classe Estrela ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addRectangles(int n, Dimension dim, String caminho) {
          for (int i = 0; i < n; i++){
@@ -60,7 +60,7 @@ class ObjectSet {
          }
     }
     
-    // Adiciona objetos da classe Star ao ObjectSet.
+    // Adiciona objetos da classe Estrela ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addCircles(int n, Dimension dim, String caminho) {
          for (int i = 0; i < n; i++){

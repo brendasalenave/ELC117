@@ -13,9 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
 enum Speed {
-    High(30),
-    Medium(100),
-    Low(300);
+    Rapido(30),
+    Medio(100),
+    Lento(300);
     private final int millis; 
 
     Speed(int millis) {
@@ -46,7 +46,7 @@ public class AnimatorController {
     
     private static final int larguraPadrao = 600;
     private static final int alturaPadrao = 500;
-    private static final Speed velocidadePadrao = Speed.High;
+    private static final Speed velocidadePadrao = Speed.Rapido;
     private static final int defaultNumberOfObjects = 1;
     private static final String imagemPadrao = "small-charmander.png";
     

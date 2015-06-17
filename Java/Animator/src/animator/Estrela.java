@@ -12,7 +12,7 @@ import java.awt.Graphics;
  *
  * @author Brenda
  */
-public class Star {
+public class Estrela {
     Color cor;
     private final int x;
     private final int y;
@@ -21,7 +21,7 @@ public class Star {
     private final String caminho;
 
 
-      public Star(int x, int y, String caminho){
+      public Estrela(int x, int y, String caminho){
         this.x = x;
         this.y = y;
         this.caminho = caminho;

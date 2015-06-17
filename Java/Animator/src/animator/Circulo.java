@@ -15,14 +15,13 @@ import java.awt.Graphics;
 
 public class Circulo {
     Color cor;
-    private int x, y , r;
+    private int x, y , raio;
     private String caminho;
-    private final int raio;
     
     public Circulo(int x, int y, int raio, String caminho) {
         this.x = x;
         this.y = y;
-        this.raio = r;
+        this.raio = raio;
         this.caminho = caminho;
         cor = (Color.green);
     }
@@ -31,6 +30,5 @@ public class Circulo {
         g.setColor(cor);
         g.fillOval(x, y, raio, raio);
     }
-    
     
 }

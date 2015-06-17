@@ -9,6 +9,6 @@ package animator;
  *
  * @author Brenda
  */
-public class Movimento {
+public class MovimentoLinear {
     
 }
