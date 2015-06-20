@@ -12,26 +12,43 @@ package animator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 
 public class Retangulo {
     Color cor;
     private final int base;
     private final int altura;
-    private final int x;
-    private final int y;
     private final String caminho;
+    private final Point origem;
+    Point pos;
     
-    public Retangulo(int x, int y, int b, int h, String caminho) {
-        this.x = x;
-        this.y = y;
+    public Retangulo(Point pos, int b, int h, String caminho) {
+        this.pos = pos;
         this.base = b;
         this.altura = h;
         this.caminho = caminho;
         cor = (Color.ORANGE);
+        this.origem = new Point(pos.x, pos.y);
+    }
+
+  public Point getOrigem() {
+        return origem;
+    }
+    
+    public Point getPos() {
+        return pos;
+    }
+    
+    public void setPos(Point pos) {
+        this.pos = pos;
+    }
+    
+    public String getCaminho() {
+        return caminho;
     }
     
     public void draw(Graphics g){
         g.setColor(cor);
-        g.fillRect(x, y, base, altura);
+        g.fillRect(pos.x, pos.y, base, altura);
     }
 }

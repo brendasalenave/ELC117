@@ -18,7 +18,7 @@ class ObjectSet {
     private ArrayList<Estrela> estrela = new ArrayList<Estrela>();
     private ArrayList<Elipse> elipse = new ArrayList<Elipse>();
 
-    private Movimento mov;
+    private Movimento mov = new Movimento();
     
     // Adiciona objetos da classe Image ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
@@ -48,29 +48,38 @@ class ObjectSet {
     // Adiciona objetos da classe Estrela ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addRectangles(int n, Dimension dim, String caminho) {
-         for (int i = 0; i < n; i++){
+         for(int i = 0; i < n; i++){
+            Point p = new Point();
             Random a = new Random();
             int x = a.nextInt((dim.width - 150));
             int y = a.nextInt((dim.height - 150));
-            retang.add(new Retangulo(x,y,60,60,caminho));
-         }
+
+            p.setLocation(x, y);
+            retang.add(new Retangulo(p, 80, 60, caminho));
+        }
     }
     
     void addCircles(int n, Dimension dim, String caminho) {
          for (int i = 0; i < n; i++){
+            Point p = new Point();
             Random a = new Random();
             int x = a.nextInt((dim.width - 150));
             int y = a.nextInt((dim.height - 150));
-            circulo.add(new Circulo(x,y,80,caminho));
+
+            p.setLocation(x, y);
+            circulo.add(new Circulo(p,60, caminho));
          }
     }
     
     void addElipses(int n, Dimension dim, String caminho) {
          for (int i = 0; i < n; i++){
+            Point p = new Point();
             Random a = new Random();
             int x = a.nextInt((dim.width - 150));
             int y = a.nextInt((dim.height - 150));
-            elipse.add(new Elipse(x,y,caminho));
+
+            p.setLocation(x, y);
+            elipse.add(new Elipse(p, caminho));
          }
     }
 
@@ -81,20 +90,21 @@ class ObjectSet {
             imagem1.draw(g);
         }
         
-        for (Circulo circulo1 : circulo) {
-            circulo1.draw(g);
+        for (int i = 0; i < circulo.size(); i++){
+            circulo.get(i).draw(g);
         }
         
-        for (Retangulo retang1 : retang) {
-            retang1.draw(g);
+        for (int i = 0; i <retang.size(); i++){
+            retang.get(i).draw(g);
         }
+        
         /*
         for (int i = 0; i < estrela.size(); i++){
         estrela.get(i).draw(g);
         }
          */
-        for (Elipse elipse1 : elipse) {
-            elipse1.draw(g);
+        for (int i = 0; i < elipse.size(); i++){
+            elipse.get(i).draw(g);
         }
     }
 
@@ -103,10 +113,23 @@ class ObjectSet {
     void moveAll() {
         for (Image imagem1 : imagem) {
             if(imagem1.getCaminho().equals("Linear")){
-                System.out.println("Movimento Linear");
                 imagem1.setPos(mov.MovimentoLinear(imagem1.getOrigem()));
+            }                
+        }        
+        for (Retangulo retang1 : retang) {
+            if(retang1.getCaminho().equals("Line")){
+                retang1.setPos(mov.MovimentoLinear(retang1.getOrigem()));
             }
-                
+        }        
+        for (Circulo circulo1 : circulo) {
+            if(circulo1.getCaminho().equals("Line")){
+                circulo1.setPos(mov.MovimentoLinear(circulo1.getOrigem()));
+            }
+        }        
+        for (Elipse elipse1 : elipse) {
+            if(elipse1.getCaminho().equals("Line")){
+                elipse1.setPos(mov.MovimentoLinear(elipse1.getOrigem()));
+            }
         }
    }
 

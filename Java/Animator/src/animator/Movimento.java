@@ -16,9 +16,7 @@ public class Movimento {
     private Dimension dim;
 
     public Point MovimentoLinear(Point p) {
-        p.x += 1;
-            if(p.x > dim.width)
-                p.x = 0;   
+        p.x += 4;
         return p;
     }
     

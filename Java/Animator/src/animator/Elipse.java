@@ -7,6 +7,7 @@ package animator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 
 /**
  *
@@ -14,25 +15,42 @@ import java.awt.Graphics;
  */
 public class Elipse {
     Color cor;
-    private final int x;
-    private final int y;
     private final int largura;
     private final int altura;
     private final String caminho;
+    Point pos;
+    private final Point origem;
     
-    public Elipse(int x, int y, String caminho){
-        this.x = x;
-        this.y = y;
+    public Elipse(Point pos, String caminho){
+        this.pos = pos;
         this.caminho = caminho;
         cor = (Color.red);
         
         this.largura = 60;
         this.altura = 100;
+        
+        this.origem = new Point(pos.x, pos.y);
+    }
+    
+     public Point getOrigem() {
+        return origem;
+    }
+    
+    public Point getPos() {
+        return pos;
+    }
+    
+    public void setPos(Point pos) {
+        this.pos = pos;
+    }
+    
+    public String getCaminho() {
+        return caminho;
     }
     
     public void draw(Graphics g){
         g.setColor(cor);
-        g.fillOval(x, y, largura, altura);
+        g.fillOval(pos.x, pos.y, largura, altura);
     }
     
 }
