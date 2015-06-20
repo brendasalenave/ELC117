@@ -221,9 +221,12 @@
     <Component class="javax.swing.JComboBox" name="comboPathImages">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Circular"/>
-            <StringItem index="1" value="Linear"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Linear Horizontal"/>
+            <StringItem index="1" value="Linear Vertical"/>
+            <StringItem index="2" value="Linear Diagonal"/>
+            <StringItem index="3" value="Circular"/>
+            <StringItem index="4" value=" "/>
           </StringArray>
         </Property>
       </Properties>

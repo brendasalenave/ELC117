@@ -13,9 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
 enum Speed {
-    Rapido(30),
-    Medio(100),
-    Lento(300);
+    Rapido(20),
+    Medio(90),
+    Lento(200);
     private final int millis; 
 
     Speed(int millis) {
@@ -30,8 +30,7 @@ enum Speed {
 enum ShapeType {
     Retangulo,
     Circulo,
-    Elipse,
-    Estrela;
+    Elipse;
 }
 
 public class AnimatorController {
@@ -131,7 +130,6 @@ public class AnimatorController {
             case Retangulo: objs.addRectangles(nShapes, tam, pathShapes); break;
             case Circulo: objs.addCircles(nShapes, tam, pathShapes); break;
             case Elipse: objs.addElipses(nShapes, tam, pathShapes); break;
-            case Estrela: objs.addStars(nShapes, tam, pathShapes); break;
         }
         // Fim da configuracao dos objetos com formas geometricas
     }

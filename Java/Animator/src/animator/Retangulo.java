@@ -16,8 +16,8 @@ import java.awt.Point;
 
 public class Retangulo {
     Color cor;
-    private final int base;
-    private final int altura;
+    private int base;
+    private int altura;
     private final String caminho;
     private final Point origem;
     Point pos;
@@ -37,6 +37,14 @@ public class Retangulo {
     
     public Point getPos() {
         return pos;
+    }
+    
+    public int getAltura(){
+        return altura;
+    }
+    
+    public void setAltura(int altura){
+        this.altura = altura;
     }
     
     public void setPos(Point pos) {

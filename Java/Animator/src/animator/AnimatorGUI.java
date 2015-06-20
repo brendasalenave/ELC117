@@ -71,7 +71,7 @@ public class AnimatorGUI extends javax.swing.JFrame {
 
         jLabel8.setText("# of objects");
 
-        comboPathImages.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Circular", "Linear" }));
+        comboPathImages.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Linear Horizontal", "Linear Vertical", "Linear Diagonal", "Circular", " " }));
 
         textImage.setText(AnimatorController.getDefaultFilename());
 

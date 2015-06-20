@@ -15,8 +15,8 @@ import java.awt.Point;
  */
 public class Elipse {
     Color cor;
-    private final int largura;
-    private final int altura;
+    private int largura;
+    private int altura;
     private final String caminho;
     Point pos;
     private final Point origem;
@@ -32,12 +32,28 @@ public class Elipse {
         this.origem = new Point(pos.x, pos.y);
     }
     
-     public Point getOrigem() {
+    public Point getOrigem() {
         return origem;
     }
     
     public Point getPos() {
         return pos;
+    }
+    
+    public int getAltura(){
+        return altura;
+    }
+    
+    public void setAltura(int altura){
+        this.altura = altura;
+    }
+    
+        public int getLargura(){
+        return largura;
+    }
+    
+    public void setLargura(int largura){
+        this.largura = largura;
     }
     
     public void setPos(Point pos) {

@@ -7,6 +7,8 @@ package animator;
 
 import java.awt.Dimension;
 import java.awt.Point;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 
 /**
  *
@@ -15,9 +17,34 @@ import java.awt.Point;
 public class Movimento {
     private Dimension dim;
 
-    public Point MovimentoLinear(Point p) {
+    public Point MovimentoLinearX(Point p) {
         p.x += 4;
         return p;
     }
     
+    public Point MovimentoLinearY(Point p) {
+        p.y += 4;
+        return p;
+    }
+    
+    public Point MovimentoLinearD(Point p) {
+        p.x += 4;
+        p.y += 4;
+        return p;
+    }
+    
+    public Point MovimentoCircular(Point p, double raio){
+        int x = (int) (p.x + 50 * cos(raio));
+        int y = (int) (p.y + 50 * sin(raio));
+        Point pCentral = new Point(x, y);
+        return pCentral;
+    }
+ 
+    public int MovimentoZoom(int t, int zoom){
+        if(t < 150)
+            return (t += zoom);
+     
+        //System.out.println("Diminuindo");
+        return (t -= 150);
+    }
 }
