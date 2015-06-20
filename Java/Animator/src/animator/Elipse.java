@@ -26,8 +26,8 @@ public class Elipse {
         this.caminho = caminho;
         cor = (Color.red);
         
-        this.largura = 90;
-        this.altura = 60;
+        this.largura = 60;
+        this.altura = 100;
     }
     
     public void draw(Graphics g){

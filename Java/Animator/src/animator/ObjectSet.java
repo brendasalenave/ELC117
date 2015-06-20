@@ -12,14 +12,13 @@ import java.util.Random;
 class ObjectSet {
     
     //private Image[] images;
-    ArrayList array = new ArrayList<Image>();
+    private ArrayList<Image> imagem = new ArrayList<Image>();
     private ArrayList<Circulo> circulo = new ArrayList<Circulo>();
     private ArrayList<Retangulo> retang = new ArrayList<Retangulo>();
     private ArrayList<Estrela> estrela = new ArrayList<Estrela>();
-    private ArrayList<Elipse> elipse = new ArrayList<Elipse>();  
+    private ArrayList<Elipse> elipse = new ArrayList<Elipse>();
 
-
-
+    private Movimento mov;
     
     // Adiciona objetos da classe Image ao ObjectSet.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
@@ -33,14 +32,11 @@ class ObjectSet {
             int y = a.nextInt((dim.height - 150));
 
             p.setLocation(x, y);
-            Image img = new Image(p, image);
-            array.add(img);
+            imagem.add(new Image(p, image, path));
         }
     }
     
     
-    // Adiciona objetos da classe Estrela ao ObjectSet.
-    // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addStars(int n, Dimension dim, String path) {
         /*for (int i = 0; i < n; i++) {
             int x = rand.nextInt(dim.width) - 50;
@@ -60,8 +56,6 @@ class ObjectSet {
          }
     }
     
-    // Adiciona objetos da classe Estrela ao ObjectSet.
-    // O codigo abaixo eh somente um teste e precisa ser substituido.
     void addCircles(int n, Dimension dim, String caminho) {
          for (int i = 0; i < n; i++){
             Random a = new Random();
@@ -83,33 +77,38 @@ class ObjectSet {
     
     // Desenha cada um dos objetos da animacao.
     void drawAll(Graphics g) {
-        for(int i = 0; i < array.size(); i++){
-            Image img = (Image) array.get(i);
-            img.draw(g);
+        for (Image imagem1 : imagem) {
+            imagem1.draw(g);
         }
         
-        for (int i = 0; i < circulo.size(); i++){
-            circulo.get(i).draw(g);
+        for (Circulo circulo1 : circulo) {
+            circulo1.draw(g);
         }
         
-        for (int i = 0; i < retang.size(); i++){
-            retang.get(i).draw(g);
+        for (Retangulo retang1 : retang) {
+            retang1.draw(g);
         }
         /*
         for (int i = 0; i < estrela.size(); i++){
-            estrela.get(i).draw(g);
+        estrela.get(i).draw(g);
         }
-        */
-        for (int i = 0; i < elipse.size(); i++){
-            elipse.get(i).draw(g);
+         */
+        for (Elipse elipse1 : elipse) {
+            elipse1.draw(g);
         }
     }
 
     // Move cada um dos objetos da animacao.
     // O codigo abaixo eh somente um teste e precisa ser substituido.
     void moveAll() {
-        System.out.println("moveAll");
-    }
+        for (Image imagem1 : imagem) {
+            if(imagem1.getCaminho().equals("Linear")){
+                System.out.println("Movimento Linear");
+                imagem1.setPos(mov.MovimentoLinear(imagem1.getOrigem()));
+            }
+                
+        }
+   }
 
     private Point setLocation(Dimension dim) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

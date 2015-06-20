@@ -28,10 +28,10 @@ enum Speed {
 }
 
 enum ShapeType {
-    Estrela,
     Retangulo,
     Circulo,
-    Elipse;
+    Elipse,
+    Estrela;
 }
 
 public class AnimatorController {
@@ -128,10 +128,10 @@ public class AnimatorController {
         ShapeType shapeType = (ShapeType) view.getComboShape().getSelectedItem();
         String pathShapes = (String) view.getComboPathShapes().getSelectedItem();
         switch (shapeType) {
-            case Estrela: objs.addStars(nShapes, tam, pathShapes); break;
             case Retangulo: objs.addRectangles(nShapes, tam, pathShapes); break;
             case Circulo: objs.addCircles(nShapes, tam, pathShapes); break;
-            case Elipse: objs.addElipses(nShapes, tam, pathShapes); break; 
+            case Elipse: objs.addElipses(nShapes, tam, pathShapes); break;
+            case Estrela: objs.addStars(nShapes, tam, pathShapes); break;
         }
         // Fim da configuracao dos objetos com formas geometricas
     }
