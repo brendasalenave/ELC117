@@ -7,6 +7,7 @@ package mmorpg;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
+import model.Personagem;
 /**
  *
  * @author Brenda
