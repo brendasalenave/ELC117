@@ -25,7 +25,7 @@ class ObjectSet {
     // O codigo abaixo eh somente um teste e precisa ser substituido.
  
         
-    void addImages(int n, Dimension dim, BufferedImage image, String path) {
+    void addImages(int n, Dimension dim, BufferedImage image, String caminho) {
         for(int i = 0; i < n; i++){
             Point p = new Point();
             Random a = new Random();
@@ -33,7 +33,7 @@ class ObjectSet {
             int y = a.nextInt((dim.height - 150));
 
             p.setLocation(x, y);
-            imagem.add(new Image(p, image, path));
+            imagem.add(new Image(p, image, caminho));
         }
     }
     
@@ -100,6 +100,7 @@ class ObjectSet {
     void moveAll() {
         
         for (int i = 0; i < imagem.size(); i++){
+            int j = 0;
 
             if(imagem.get(i).getCaminho().equals("Linear Horizontal")){
                 imagem.get(i).setPos(mov.MovimentoLinearX(imagem.get(i).getOrigem()));
@@ -109,21 +110,30 @@ class ObjectSet {
                 imagem.get(i).setPos(mov.MovimentoLinearY(imagem.get(i).getOrigem()));
             }
             
-            if(imagem.get(i).getCaminho().equals("Linear Diagonal")){
+            if(imagem.get(i).getCaminho().equals("Diagonal")){
                 imagem.get(i).setPos(mov.MovimentoLinearD(imagem.get(i).getOrigem()));
             }
             
             if(imagem.get(i).getCaminho().equals("Circular")){
                 imagem.get(i).setPos(mov.MovimentoCircular(imagem.get(i).getOrigem(),r));
-            }   
+            }
+            
         } 
         
         for (int i = 0; i < retang.size(); i++){
-            if(retang.get(i).getCaminho().equals("Line")){
+            if(retang.get(i).getCaminho().equals("Linear Horizontal")){
                 retang.get(i).setPos(mov.MovimentoLinearX(retang.get(i).getOrigem()));
             }
             
-            if(retang.get(i).getCaminho().equals("Circle")){
+            if(retang.get(i).getCaminho().equals("Linear Vertical")){
+                retang.get(i).setPos(mov.MovimentoLinearY(retang.get(i).getOrigem()));
+            }
+            
+            if(retang.get(i).getCaminho().equals("Diagonal")){
+                retang.get(i).setPos(mov.MovimentoLinearD(retang.get(i).getOrigem()));
+            }
+            
+            if(retang.get(i).getCaminho().equals("Circular")){
                 retang.get(i).setPos(mov.MovimentoCircular(retang.get(i).getOrigem(),r));
             }
             
@@ -133,11 +143,19 @@ class ObjectSet {
         }
    
         for (int i = 0; i < circulo.size(); i++){
-            if(circulo.get(i).getCaminho().equals("Line")){
+            if(circulo.get(i).getCaminho().equals("Linear Horizontal")){
                 circulo.get(i).setPos(mov.MovimentoLinearX(circulo.get(i).getOrigem()));
             }
             
-            if(circulo.get(i).getCaminho().equals("Circle")){
+            if(circulo.get(i).getCaminho().equals("Linear Vertical")){
+                circulo.get(i).setPos(mov.MovimentoLinearY(circulo.get(i).getOrigem()));
+            }
+            
+            if(circulo.get(i).getCaminho().equals("Diagonal")){
+                circulo.get(i).setPos(mov.MovimentoLinearD(circulo.get(i).getOrigem()));
+            }
+            
+            if(circulo.get(i).getCaminho().equals("Circular")){
                 circulo.get(i).setPos(mov.MovimentoCircular(circulo.get(i).getOrigem(),r));
             }
             
@@ -147,10 +165,19 @@ class ObjectSet {
         }            
         
         for (int i = 0; i < elipse.size(); i++){
-            if(elipse.get(i).getCaminho().equals("Line")){
+            if(elipse.get(i).getCaminho().equals("Linear Horizontal")){
                 elipse.get(i).setPos(mov.MovimentoLinearX(elipse.get(i).getOrigem()));
             }
-            if(elipse.get(i).getCaminho().equals("Circle")){
+            
+            if(elipse.get(i).getCaminho().equals("Linear Vertical")){
+                elipse.get(i).setPos(mov.MovimentoLinearY(elipse.get(i).getOrigem()));
+            }
+            
+            if(elipse.get(i).getCaminho().equals("Diagonal")){
+                elipse.get(i).setPos(mov.MovimentoLinearD(elipse.get(i).getOrigem()));
+            }
+            
+            if(elipse.get(i).getCaminho().equals("Circular")){
                 elipse.get(i).setPos(mov.MovimentoCircular(elipse.get(i).getOrigem(),r));
             }
              if(elipse.get(i).getCaminho().equals("Zoom")){

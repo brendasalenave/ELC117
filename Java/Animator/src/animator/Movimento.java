@@ -19,17 +19,23 @@ public class Movimento {
 
     public Point MovimentoLinearX(Point p) {
         p.x += 4;
+        if(p.x >= 620) p.x = -5;
         return p;
     }
     
     public Point MovimentoLinearY(Point p) {
         p.y += 4;
+        if(p.y >= 570) p.y = -5;
         return p;
     }
     
     public Point MovimentoLinearD(Point p) {
         p.x += 4;
         p.y += 4;
+        if(p.x >= 620){
+            p.x = -5;
+            p.y = -5;
+        }
         return p;
     }
     
