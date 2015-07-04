@@ -41,7 +41,11 @@ public class Controller {
     
     public void atualizar() {
         int indice = view.getTable().getSelectedRow();
-        //model.refresh(indice);
+        if(indice == -1){
+            return;
+        }
+        Personagem contato = novosDados();
+        model.atualiza(indice, contato);
     }
 
     public void remover() {

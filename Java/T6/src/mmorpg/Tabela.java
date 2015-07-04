@@ -52,6 +52,12 @@ public class Tabela extends AbstractTableModel{
         personagem.add(p);
         fireTableRowsInserted(personagem.size()-1,personagem.size()-1);
     }
+    
+    public void atualiza(int indice, Personagem p) {
+       //personagem.atuliza(indice);
+        personagem.add(indice, p);
+        fireTableRowsUpdated(indice, indice);
+    }
 
     public void remove(int indice) {
         personagem.remove(indice);
